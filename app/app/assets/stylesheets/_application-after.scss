@@ -1,0 +1,224 @@
+html {
+    font-size: 92%;
+}
+
+$link-color:                  theme-color("primary");
+$link-decoration:             none;
+$link-hover-color:            darken($link-color, 20%);
+$link-hover-decoration:       underline;
+
+a {
+    text-decoration: none !important;
+    background-color: transparent;
+    cursor: pointer;
+    color: $link-color;
+
+  @include hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+
+
+}
+
+a:not([href]):not([tabindex]) {
+  color: $link-color;
+  text-decoration: none;
+
+  @include hover-focus {
+    //color: inherit;
+    //text-decoration: none;
+    color: $link-hover-color;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+
+$cadet-blue: #5f9ea0;
+$midnight-blue: #191970;
+$navy: #191970;
+$steel-blue: #4682b4;
+
+.bg-dark {
+    background-color: darken($steel-blue, 20%) !important;
+}
+
+//.navbar {
+//    padding-left: 1em !important;
+//    padding-right: 1em !important;
+//}
+
+//.navbar-dark .navbar-nav .nav-link {
+//  color: $white;
+//}
+
+//.table thead th {
+//    border-bottom: 1px solid $table-border-color;
+//}
+
+.table {
+
+    th,
+    td {
+        border-top: none;
+        border-bottom: $table-border-width solid $table-border-color;
+    }
+
+    thead th {
+        border-bottom: $table-border-width solid $table-border-color;
+    }
+
+    tbody+tbody {
+        border-top: $table-border-width solid $table-border-color;
+    }
+
+    .table {
+        background-color: $body-bg;
+    }
+
+    .thead-light {
+        th {
+            background-color: $gray-300;
+            border-color: $table-border-color;
+        }
+    }
+}
+
+
+//.navbar-dark {
+//    .nav-link {
+//        color: $navbar-dark-color;
+//    }
+//}
+
+.navbar-dark {
+    .navbar-brand {
+        color: $navbar-dark-brand-color;
+        @include hover-focus {
+            color: $navbar-dark-brand-hover-color;
+        }
+    }
+
+    .nav {
+        .nav-link {
+            color: $navbar-dark-color;
+            @include hover-focus {
+                color: $navbar-dark-hover-color;
+            }
+            &.disabled {
+                color: $navbar-dark-disabled-color;
+            }
+        }
+        .show>.nav-link,
+        .active>.nav-link,
+        .nav-link.show,
+        .nav-link.active {
+            color: $navbar-dark-active-color;
+        }
+    }
+    .navbar-toggler {
+        color: $navbar-dark-color;
+        border-color: $navbar-dark-toggler-border-color;
+    }
+
+    .navbar-toggler-icon {
+        background-image: $navbar-dark-toggler-icon-bg;
+    }
+
+    .navbar-text {
+        //display: inline-block;
+        //padding-top: .1rem;
+        //padding-bottom: .1rem;
+
+        color: $navbar-dark-color;
+        a {
+            color: $navbar-dark-active-color;
+            @include hover-focus {
+                color: $navbar-dark-active-color;
+            }
+        }
+    }
+}
+
+
+$ng-form-green: #42a948;
+$ng-form-red: #a94442;
+
+input.ng-valid[required], .ng-valid.required  {
+  border: 1px solid $ng-form-green;
+}
+
+input.ng-invalid:not(form)  {
+  border: 1px solid $ng-form-red;
+}
+
+@mixin toast-mixin($toast-bg-color) {
+    max-width: $toast-max-width;
+    overflow: hidden; // cheap rounded corners on nested items
+    //font-size: $toast-font-size; // knock it down to 14px
+
+    background-color: $toast-bg-color;
+
+    background-clip: padding-box;
+    border: $toast-border-width solid $toast-border-color;
+    border-radius: $toast-border-radius;
+    box-shadow: $toast-box-shadow;
+    backdrop-filter: blur(10px);
+    opacity: 1;
+    z-index: 2000;
+
+    margin-bottom: $toast-padding-x;
+
+    &.showing {
+        opacity: 1;
+    }
+
+    &.show {
+        display: block;
+        opacity: 1;
+    }
+
+    &.hide {
+        display: none;
+    }
+}
+
+@mixin toast-header-mixin($toast-bg-color) {
+    display: flex;
+    align-items: center;
+    padding: $toast-padding-y $toast-padding-x $toast-padding-y/2 $toast-padding-x;
+    color: $toast-header-color;
+
+    background-color: $toast-bg-color;
+
+    background-clip: padding-box;
+    border-bottom: none; //$toast-border-width solid $toast-header-border-color;
+}
+
+.toast {
+    @include toast-mixin($white);
+}
+
+.toast-header {
+    @include toast-header-mixin($white);
+}
+
+@each $color, $value in $theme-colors {
+    .toast-#{$color} {
+        @include toast-mixin(lighten($value, 37%));
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .toast-header-#{$color} {
+        @include toast-header-mixin(lighten($value, 37%));
+    }
+}
+
+.toast-body {
+    padding: $toast-padding-y/2 $toast-padding-x $toast-padding-y $toast-padding-x;
+}

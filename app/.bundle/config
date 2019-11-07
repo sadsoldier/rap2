@@ -1,0 +1,3 @@
+---
+BUNDLE_PATH: "vendor/bundle"
+BUNDLE_WITHOUT: "postgres:sqlite:development:test:therubyracer:docker"

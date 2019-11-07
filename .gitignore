@@ -1,0 +1,9 @@
+*~
+*.sqlite3
+app/vendor/
+app/run/
+app/log/
+app/tmp/
+Makefile
+config.log
+config.status

@@ -1,0 +1,10 @@
+*.vue linguist-language=Typescript
+*.js linguist-language=Typescript
+*.ts linguist-language=Typescript
+*.html linguist-vendored
+*.css linguist-vendored
+*.scss linguist-vendored
+*/**/Makefile* linguist-vendored
+backend/public/* linguist-vendored
+Makefile* linguist-vendored
+config* linguist-vendored

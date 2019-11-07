@@ -1,0 +1,83 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>R2 Login</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+</head>
+
+<body>
+
+    <div>
+        <nav class="navbar navbar-expand-sm sticky-top navbar-dark bg-dark mb-4">
+            <span class="navbar-text ml-3">
+                Login
+            </span>
+
+            <ul class="nav justify-content-end ml-auto">
+                <li lass="nav-item">
+                    <a class="nav-link" href="/">Go Home</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class=" col-8 col-sm-6 col-md-4 border p-4 mt-sm-5 ml-3 mr-3">
+
+                    <%= form_tag auth_path, authenticity_token: false, enforce_utf8: false do |form| %>
+
+                    <div class=" form-group">
+                        <label for="login-name">Login name</label>
+                        <%= text_field_tag "email", nil, class: "form-control" %>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <%= password_field_tag "password", nil, class: "form-control" %>
+                    </div>
+
+                    <div class="text-center">
+                        <%= button_tag "Submit", type: "submit", class: "btn btn-primary btn-sm" %>
+                    </div>
+
+                    <% end %>
+
+                </div>
+            </div>
+        </div>
+
+        <% if flash[:alert] %>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-8 col-sm-8 col-md-6 mt-sm-3">
+                        <div class="text-center ">
+                            <span class="text-danger"><b><%= flash[:alert] %></b></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+
+        <div class="container">
+            <div class="row">
+                <div class="col mt-5">
+                    <hr class="justify-content-sm-center" />
+                    <div class="text-center">
+                        <small>Made by <a href="http://wiki.unix7.org">Borodin Oleg</a></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <%= javascript_include_tag "application" %>
+
+</body>
+
+</html>
