@@ -1,0 +1,6 @@
+#!/bin/sh
+cd /home/ziggi/rapp4b/app || exit 1
+./bin/bundle exec puma --config ./config/puma.rb
+#EOF
+
+

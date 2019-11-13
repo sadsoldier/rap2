@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>R2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm sticky-top navbar-dark bg-dark mb-4">
+
+        <div class="navbar-brand">
+            <%= icon 'fab', 'old-republic', class: 'fa-lg' %> R2
+        </div>
+
+        <% if current_user %>
+            <a class="nav-link" href="/">Records</a>
+            <% if current_user.is_admin %>
+                <a class="nav-link" href="/user">Users</a>
+            <% end %>
+        <% end %>
+
+        <ul class="nav justify-content-end ml-auto mr-3">
+            <li class="nav-item">
+                <% if current_user %>
+                    <%= link_to current_user.username, logout_path %>
+                <% else %>
+                    <%= link_to "Login", login_path %>
+                <% end %>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        <%= yield %>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col mt-5">
+                <hr class="justify-content-sm-center" />
+                <div class="text-center">
+                    <small>Made by <a href="http://wiki.unix7.org">Borodin Oleg</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%= javascript_include_tag 'application' %>
+
+</body>
+
+</html>

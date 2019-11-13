@@ -1,0 +1,15 @@
+environment 'production'
+
+daemonize @app_daemonize@
+
+directory '@APP_LIBDIR@'
+rackup 'config.ru'
+pidfile '@APP_RUNDIR@/puma.pid'
+state_path '@APP_RUNDIR@/puma.state'
+stdout_redirect '@APP_LOGDIR@/puma.stdout',
+	'@APP_LOGDIR@/puma.stderr', true
+threads 1, 16
+bind 'tcp://127.0.0.1:8089'
+workers 3
+
+

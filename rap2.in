@@ -1,0 +1,6 @@
+#!/bin/sh
+cd @APP_LIBDIR@ || exit 1
+./bin/bundle exec puma --config ./config/puma.rb
+#EOF
+
+

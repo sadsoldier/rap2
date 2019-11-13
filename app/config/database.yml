@@ -1,0 +1,17 @@
+
+default: &default
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: /home/ziggi/rapp4b/app/db/development.sqlite3
+
+test:
+  <<: *default
+  database: /home/ziggi/rapp4b/app/db/test.sqlite3
+
+production:
+  <<: *default
+  database: /home/ziggi/rapp4b/app/db/production.sqlite3
