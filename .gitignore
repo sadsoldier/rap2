@@ -1,6 +1,7 @@
 *~
 *.sqlite3
 app/vendor/
+app/node_modules/
 app/run/
 app/log/
 app/tmp/

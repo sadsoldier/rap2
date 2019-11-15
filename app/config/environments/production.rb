@@ -31,7 +31,7 @@ Rails.application.configure do
         end
     end
 
-    logger = ActiveSupport::Logger.new("/home/ziggi/rapp4b/app/log/#{Rails.env}.log")
+    logger = ActiveSupport::Logger.new("/home/ziggi/rapp4bw/app/log/#{Rails.env}.log")
     logger.formatter = CustomFormatter.new
 
     config.logger = ActiveSupport::TaggedLogging.new(logger)
@@ -47,7 +47,7 @@ Rails.application.configure do
 
     config.assets.configure do |env|
         env.cache = Sprockets::Cache::FileStore.new(
-            File.join('/home/ziggi/rapp4b/app/tmp/cache/assets'),
+            File.join('/home/ziggi/rapp4bw/app/tmp/cache/assets'),
             config.assets.cache_limit,
             env.logger
         )

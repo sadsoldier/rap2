@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col">
                     <a class="btn btn-primary btn-sm ml-auto float-right mb-3 d-inline-block" href="<%= record_update_path  %>">
-                        <%= icon 'fas', 'sync' %>
+                        <i class="fas fa-sync"></i>
                     </a>
                     <h5 class="mb-3"><b>Records</b></h5>
                 </div>
@@ -27,7 +27,7 @@
                         <input type="text" class="form-control form-control-sm" placeholder="Destination" name="destination"  value="<%= @search_destination %>">
                     </div>
                     <div class="col">
-                        <button type="submit" class="btn btn-sm btn-primary"><%= icon 'fas', 'search' %></button>
+                        <button type="submit" class="btn btn-sm btn-primary"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@
                         <th scope="col">source</th>
                         <th scope="col">dest</th>
                         <th scope="col">len</th>
-                        <th scope="col">down</th>
+                        <th scope="col"><i class="fas fa-file-download"></i></th>
 
                     </tr>
                 </thead>
@@ -73,7 +73,9 @@
                         </td>
 
                         <td>
-                            <a href="<%= record_download_path %>?id=<%= item.id %>" target="_blank"><%= icon 'fas', 'file-download' %></a>
+                            <a href="<%= record_download_path %>?id=<%= item.id %>" target="_blank">
+                                <i class="fas fa-file-download"></i>
+                            </a>
                         </td>
                     </tr>
                     <% end %>

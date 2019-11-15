@@ -12,13 +12,13 @@ AC_PATH_PROG([node],[node])
 dnl AC_PATH_PROG([NODE],[node])
 dnl AC_SUBST(node, node)
 
-AC_CHECK_PROG(HAVE_NPM, npm, true, false, /bin /usr/local/bin /usr/bin)
-if test "x$HAVE_NPM" = "xfalse"; then
-	AC_MSG_ERROR([Requested program npm not found])
+AC_CHECK_PROG(HAVE_YARN, yarn, true, false, /bin /usr/local/bin /usr/bin)
+if test "x$HAVE_YARN" = "xfalse"; then
+	AC_MSG_ERROR([Requested program yarn not found])
 fi
-AC_SUBST(npm, npm)
-dnl AC_PATH_PROG([NPM],[npm])
-AC_PATH_PROG([npm],[npm])
+AC_SUBST(yarn, yarn)
+dnl AC_PATH_PROG([YARN],[yarn])
+AC_PATH_PROG([yarn],[yarn])
 
 
 AC_CHECK_PROG(HAVE_BUNDLE, bundle, true, false, /bin /usr/local/bin /usr/bin)
@@ -195,10 +195,10 @@ AC_ARG_WITH(libdir,
 				;;
 		esac
 	else
-		APP_LIBDIR="${PREFIX}/share/${PACKAGE}"
+		APP_LIBDIR="${PREFIX}/lib/${PACKAGE}"
 	fi ],
 	[
-	APP_LIBDIR="${PREFIX}/share/${PACKAGE}"
+	APP_LIBDIR="${PREFIX}/lib/${PACKAGE}"
 	])
 
 AS_IF([test "x$enable_devel_mode" = "xyes"], [

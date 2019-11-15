@@ -200,7 +200,7 @@ HAVE_BUNDLE = @HAVE_BUNDLE@
 HAVE_CP = @HAVE_CP@
 HAVE_GEM = @HAVE_GEM@
 HAVE_NODE = @HAVE_NODE@
-HAVE_NPM = @HAVE_NPM@
+HAVE_YARN = @HAVE_YARN@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
@@ -270,7 +270,6 @@ localstatedir = @localstatedir@
 mandir = @mandir@
 mkdir_p = @mkdir_p@
 node = @node@
-npm = @npm@
 oldincludedir = @oldincludedir@
 pdfdir = @pdfdir@
 prefix = @prefix@
@@ -284,6 +283,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
+yarn = @yarn@
 AUTOMAKE_OPTIONS = foreign no-dependencies no-installinfo
 APPDIR = app
 bin_SCRIPTS = rap2
@@ -675,6 +675,8 @@ app/Gemfile.lock:
 #	cd app && bundle config build.sassc '--disable-march-tune-native --disable-lto'
 	cd app && bundle config build.sassc '--disable-lto'
 	cd app && bundle install --path vendor/bundle --clean
+	cd app && yarn install
+	cd app && bundle exec rake assets:precompile
 	mkdir -p app/run app/tmp app/log
 
 install-data-local:

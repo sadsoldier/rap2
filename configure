@@ -622,8 +622,8 @@ gem
 HAVE_GEM
 bundle
 HAVE_BUNDLE
-npm
-HAVE_NPM
+yarn
+HAVE_YARN
 node
 HAVE_NODE
 AM_BACKSLASH
@@ -2468,15 +2468,15 @@ fi
 
 
 
-# Extract the first word of "npm", so it can be a program name with args.
-set dummy npm; ac_word=$2
+# Extract the first word of "yarn", so it can be a program name with args.
+set dummy yarn; ac_word=$2
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
 $as_echo_n "checking for $ac_word... " >&6; }
-if ${ac_cv_prog_HAVE_NPM+:} false; then :
+if ${ac_cv_prog_HAVE_YARN+:} false; then :
   $as_echo_n "(cached) " >&6
 else
-  if test -n "$HAVE_NPM"; then
-  ac_cv_prog_HAVE_NPM="$HAVE_NPM" # Let the user override the test.
+  if test -n "$HAVE_YARN"; then
+  ac_cv_prog_HAVE_YARN="$HAVE_YARN" # Let the user override the test.
 else
 as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
 for as_dir in /bin /usr/local/bin /usr/bin
@@ -2485,7 +2485,7 @@ do
   test -z "$as_dir" && as_dir=.
     for ac_exec_ext in '' $ac_executable_extensions; do
   if as_fn_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
-    ac_cv_prog_HAVE_NPM="true"
+    ac_cv_prog_HAVE_YARN="true"
     $as_echo "$as_me:${as_lineno-$LINENO}: found $as_dir/$ac_word$ac_exec_ext" >&5
     break 2
   fi
@@ -2493,34 +2493,34 @@ done
   done
 IFS=$as_save_IFS
 
-  test -z "$ac_cv_prog_HAVE_NPM" && ac_cv_prog_HAVE_NPM="false"
+  test -z "$ac_cv_prog_HAVE_YARN" && ac_cv_prog_HAVE_YARN="false"
 fi
 fi
-HAVE_NPM=$ac_cv_prog_HAVE_NPM
-if test -n "$HAVE_NPM"; then
-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: $HAVE_NPM" >&5
-$as_echo "$HAVE_NPM" >&6; }
+HAVE_YARN=$ac_cv_prog_HAVE_YARN
+if test -n "$HAVE_YARN"; then
+  { $as_echo "$as_me:${as_lineno-$LINENO}: result: $HAVE_YARN" >&5
+$as_echo "$HAVE_YARN" >&6; }
 else
   { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 fi
 
 
-if test "x$HAVE_NPM" = "xfalse"; then
-	as_fn_error $? "Requested program npm not found" "$LINENO" 5
+if test "x$HAVE_YARN" = "xfalse"; then
+	as_fn_error $? "Requested program yarn not found" "$LINENO" 5
 fi
-npm=npm
+yarn=yarn
 
-# Extract the first word of "npm", so it can be a program name with args.
-set dummy npm; ac_word=$2
+# Extract the first word of "yarn", so it can be a program name with args.
+set dummy yarn; ac_word=$2
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
 $as_echo_n "checking for $ac_word... " >&6; }
-if ${ac_cv_path_npm+:} false; then :
+if ${ac_cv_path_yarn+:} false; then :
   $as_echo_n "(cached) " >&6
 else
-  case $npm in
+  case $yarn in
   [\\/]* | ?:[\\/]*)
-  ac_cv_path_npm="$npm" # Let the user override the test with a path.
+  ac_cv_path_yarn="$yarn" # Let the user override the test with a path.
   ;;
   *)
   as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
@@ -2530,7 +2530,7 @@ do
   test -z "$as_dir" && as_dir=.
     for ac_exec_ext in '' $ac_executable_extensions; do
   if as_fn_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
-    ac_cv_path_npm="$as_dir/$ac_word$ac_exec_ext"
+    ac_cv_path_yarn="$as_dir/$ac_word$ac_exec_ext"
     $as_echo "$as_me:${as_lineno-$LINENO}: found $as_dir/$ac_word$ac_exec_ext" >&5
     break 2
   fi
@@ -2541,10 +2541,10 @@ IFS=$as_save_IFS
   ;;
 esac
 fi
-npm=$ac_cv_path_npm
-if test -n "$npm"; then
-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: $npm" >&5
-$as_echo "$npm" >&6; }
+yarn=$ac_cv_path_yarn
+if test -n "$yarn"; then
+  { $as_echo "$as_me:${as_lineno-$LINENO}: result: $yarn" >&5
+$as_echo "$yarn" >&6; }
 else
   { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
@@ -3124,11 +3124,11 @@ if test "${with_libdir+set}" = set; then :
 				;;
 		esac
 	else
-		APP_LIBDIR="${PREFIX}/share/${PACKAGE}"
+		APP_LIBDIR="${PREFIX}/lib/${PACKAGE}"
 	fi
 else
 
-	APP_LIBDIR="${PREFIX}/share/${PACKAGE}"
+	APP_LIBDIR="${PREFIX}/lib/${PACKAGE}"
 
 fi
 

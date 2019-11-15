@@ -10,7 +10,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 </head>
 
 <body>
@@ -18,7 +19,7 @@
     <nav class="navbar navbar-expand-sm sticky-top navbar-dark bg-dark mb-4">
 
         <div class="navbar-brand">
-            <%= icon 'fab', 'old-republic', class: 'fa-lg' %> R2
+            <i class="fab fa-old-republic fa-lg"></i> R2
         </div>
 
         <% if current_user %>
@@ -54,7 +55,7 @@
         </div>
     </div>
 
-    <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
 
 </body>
 

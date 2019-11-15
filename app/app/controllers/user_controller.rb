@@ -10,6 +10,8 @@ class UserController < ApplicationController
         user.name = params[:name]
         user.username = params[:username]
         user.password = params[:password]
+        user.password_confirmation = params[:password]
+
         if user.valid?
             user.save
             flash[:notice] = "User record created"
@@ -25,7 +27,12 @@ class UserController < ApplicationController
         user.is_admin = params[:is_admin]
         user.name = params[:name]
         user.username = params[:username]
-        user.password = params[:password]
+
+        if params[:password] != nil
+            user.password = params[:password]
+            user.password_confirmation = params[:password]
+        end
+
         if user.valid?
             user.save
             flash[:notice] = "User record updated"

@@ -10,7 +10,10 @@ app/Gemfile.lock:
 #	cd app && bundle config build.sassc '--disable-march-tune-native --disable-lto'
 	cd app && bundle config build.sassc '--disable-lto'
 	cd app && bundle install --path vendor/bundle --clean
+	cd app && yarn install
+	cd app && bundle exec rake assets:precompile
 	mkdir -p app/run app/tmp app/log
+
 
 bin_SCRIPTS = rap2
 

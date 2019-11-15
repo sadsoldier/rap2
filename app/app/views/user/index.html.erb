@@ -29,6 +29,12 @@
                         <input type="password" class="form-control" name="password" id="password">
                     </div>
 
+                    <div class="form-group">
+                        <label for="password_confirmation">Password confirmation:</label>
+                        <input type="password" class="form-control" name="password_confirmation" id="password_confirmation">
+                    </div>
+
+
                     <div class="form-check">
                         <input type="checkbox" name="is_admin" id="is_admin" />
                         <label class="form-check-label" for="is_admin"> As admin</label>
@@ -39,7 +45,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-sm btn-primary">Save</button>
+                    <button type="submit" class="btn btn-sm btn-primary">Create</button>
                 </div>
             </form>
         </div>
@@ -71,7 +77,7 @@
             <div class="row">
                 <div class="col">
                     <div class="btn btn-primary btn-sm ml-auto float-right mb-3 d-inline-block" data-toggle="modal" data-target="#user-create">
-                        <%= icon 'fas', 'plus' %>
+                        <i class="fas fa-plus"></i>
                     </div>
                     <h5 class="mb-3"><b>Users</b></h5>
                 </div>
@@ -97,7 +103,7 @@
                         </td>
                         <td>
                             <% if u.is_admin %>
-                            <%= icon 'fas', 'star', class: 'fa-star' %>
+                            <i class="fas fa-star"></i>
                             <% end %>
                             <%= u.name %>
                         </td>
@@ -135,19 +141,25 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="password">Password:</label>
-                                                    <input type="password" class="form-control" name="password" id="password" value="<%= u.password %>">
+                                                    <label for="password">New password:</label>
+                                                    <input type="password" class="form-control" name="password" id="password">
                                                 </div>
+
+                                                <div class="form-group">
+                                                    <label for="password_confirmation">New password confirmation:</label>
+                                                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation">
+                                                </div>
+
 
                                                 <div class="form-check">
                                                     <input type="checkbox" name="is_admin" id="is_admin" />
-                                                    <label class="form-check-label" for="is_admin"> As admin</label>
+                                                    <label class="form-check-label" for="is_admin"> Login as admin</label>
                                                 </div>
                                             </div>
 
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-sm btn-primary">Send</button>
+                                                <button type="submit" class="btn btn-sm btn-primary">Update</button>
                                             </div>
                                         </form>
                                     </div>
@@ -155,7 +167,7 @@
                             </div>
 
                             <div class="btn btn-sm btn-light" data-toggle="modal" data-target="#user-update-<%= u.id %>">
-                                <%= icon 'far', 'edit' %>
+                                <i class="far fa-edit"></i>
                             </div>
 
                         </td>
@@ -196,7 +208,7 @@
                             </div>
 
                             <div class="btn btn-sm btn-light" data-toggle="modal" data-target="#user-drop-<%= u.id %>">
-                                <%= icon 'far', 'trash-alt' %>
+                                <i class="far fa-trash-alt"></i>
                             </div>
 
                         </td>

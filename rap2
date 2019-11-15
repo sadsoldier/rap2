@@ -1,5 +1,5 @@
 #!/bin/sh
-cd /home/ziggi/rapp4b/app || exit 1
+cd /home/ziggi/rapp4bw/app || exit 1
 ./bin/bundle exec puma --config ./config/puma.rb
 #EOF
 
