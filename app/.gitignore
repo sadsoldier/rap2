@@ -7,7 +7,6 @@
 !/tmp/.keep
 /node_modules
 /*.log
-
 /public/packs
 /public/packs-test
 /node_modules
