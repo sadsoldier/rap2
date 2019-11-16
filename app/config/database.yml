@@ -15,3 +15,9 @@ test:
 production:
   <<: *default
   database: /home/ziggi/rapp4bw/app/db/production.sqlite3
+#  adapter: postgresql
+#  encoding: unicode
+#  database: rap2
+#  pool: 5
+#  username: rap2
+#  password: password

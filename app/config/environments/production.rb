@@ -15,6 +15,7 @@ Rails.application.configure do
     config.require_master_key = true
 
     config.public_file_server.enabled = true
+    config.serve_static_assets = true
 
     #config.force_ssl = true
     config.cache_store = :memory_store, { size: 16.megabytes }
