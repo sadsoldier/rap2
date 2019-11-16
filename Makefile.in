@@ -671,13 +671,15 @@ uninstall-am: uninstall-binSCRIPTS
 all: app/Gemfile.lock
 
 app/Gemfile.lock:
-	cd app && bundle config build.nokogiri '--use-system-libraries'
+#	cd app && bundle config build.nokogiri '--use-system-libraries'
 #	cd app && bundle config build.sassc '--disable-march-tune-native --disable-lto'
-	cd app && bundle config build.sassc '--disable-lto'
-	cd app && bundle install --path vendor/bundle --clean
+#	cd app && bundle config build.sassc '--disable-lto'
+#	cd app && bundle install --path vendor/bundle --clean
+#	cd app && yarn install
+#	cd app && bundle exec rake assets:precompile
+#	mkdir -p app/run app/tmp app/log
+	cd app && bundle install
 	cd app && yarn install
-	cd app && bundle exec rake assets:precompile
-	mkdir -p app/run app/tmp app/log
 
 install-data-local:
 	test -z $(DESTDIR)$(APP_LIBDIR) || $(MKDIR_P) $(DESTDIR)$(APP_LIBDIR)

@@ -3,16 +3,18 @@ AUTOMAKE_OPTIONS = foreign no-dependencies no-installinfo
 
 APPDIR = app
 
-all: app/Gemfile.lock
-
-app/Gemfile.lock:
-	cd app && bundle config build.nokogiri '--use-system-libraries'
+build:
+#	cd app && bundle config build.nokogiri '--use-system-libraries'
 #	cd app && bundle config build.sassc '--disable-march-tune-native --disable-lto'
-	cd app && bundle config build.sassc '--disable-lto'
-	cd app && bundle install --path vendor/bundle --clean
+#	cd app && bundle config build.sassc '--disable-lto'
+#	cd app && bundle install --path vendor/bundle --clean
+#	cd app && yarn install
+#	cd app && bundle exec rake assets:precompile
+#	mkdir -p app/run app/tmp app/log
+	cd app && bundle install
 	cd app && yarn install
-	cd app && bundle exec rake assets:precompile
-	mkdir -p app/run app/tmp app/log
+	cd app && RAILS_ENV=production bundle exec rake assets:clean
+	cd app && RAILS_ENV=production bundle exec rake assets:precompile
 
 
 bin_SCRIPTS = rap2
