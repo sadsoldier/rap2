@@ -668,9 +668,7 @@ uninstall-am: uninstall-binSCRIPTS
 .PRECIOUS: Makefile
 
 
-all: app/Gemfile.lock
-
-app/Gemfile.lock:
+build:
 #	cd app && bundle config build.nokogiri '--use-system-libraries'
 #	cd app && bundle config build.sassc '--disable-march-tune-native --disable-lto'
 #	cd app && bundle config build.sassc '--disable-lto'
@@ -680,6 +678,8 @@ app/Gemfile.lock:
 #	mkdir -p app/run app/tmp app/log
 	cd app && bundle install
 	cd app && yarn install
+	cd app && RAILS_ENV=production bundle exec rake assets:clean
+	cd app && RAILS_ENV=production bundle exec rake assets:precompile
 
 install-data-local:
 	test -z $(DESTDIR)$(APP_LIBDIR) || $(MKDIR_P) $(DESTDIR)$(APP_LIBDIR)
