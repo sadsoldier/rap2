@@ -6,15 +6,15 @@ default: &default
 
 development:
   <<: *default
-  database: /home/ziggi/rapp4bw/app/db/development.sqlite3
+  database: db/development.sqlite3
 
 test:
   <<: *default
-  database: /home/ziggi/rapp4bw/app/db/test.sqlite3
+  database: db/test.sqlite3
 
 production:
   <<: *default
-  database: /home/ziggi/rapp4bw/app/db/production.sqlite3
+  database: db/production.sqlite3
 #  adapter: postgresql
 #  encoding: unicode
 #  database: rap2

@@ -98,8 +98,7 @@ DIST_COMMON = $(srcdir)/Makefile.am $(top_srcdir)/configure \
 am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
-CONFIG_CLEAN_FILES = rap2 app/config/puma.rb app/config/database.yml \
-	app/config/boot.rb app/config/environments/production.rb
+CONFIG_CLEAN_FILES = rap2 app/config/puma.rb app/config/application.rb
 CONFIG_CLEAN_VPATH_FILES =
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
@@ -153,9 +152,7 @@ am__can_run_installinfo = \
   esac
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
 am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/rap2.in \
-	$(top_srcdir)/app/config/boot.rb.in \
-	$(top_srcdir)/app/config/database.yml.in \
-	$(top_srcdir)/app/config/environments/production.rb.in \
+	$(top_srcdir)/app/config/application.rb.in \
 	$(top_srcdir)/app/config/puma.rb.in config.guess config.sub \
 	install-sh missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -328,11 +325,7 @@ rap2: $(top_builddir)/config.status $(srcdir)/rap2.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 app/config/puma.rb: $(top_builddir)/config.status $(top_srcdir)/app/config/puma.rb.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
-app/config/database.yml: $(top_builddir)/config.status $(top_srcdir)/app/config/database.yml.in
-	cd $(top_builddir) && $(SHELL) ./config.status $@
-app/config/boot.rb: $(top_builddir)/config.status $(top_srcdir)/app/config/boot.rb.in
-	cd $(top_builddir) && $(SHELL) ./config.status $@
-app/config/environments/production.rb: $(top_builddir)/config.status $(top_srcdir)/app/config/environments/production.rb.in
+app/config/application.rb: $(top_builddir)/config.status $(top_srcdir)/app/config/application.rb.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 install-binSCRIPTS: $(bin_SCRIPTS)
 	@$(NORMAL_INSTALL)

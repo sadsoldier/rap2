@@ -2986,8 +2986,8 @@ fi
 
 if test "x$enable_devel_mode" = "xyes"; then :
 
-    APP_CONFDIR="${SRCDIR}"
-    sysconfdir="${SRCDIR}"
+    APP_CONFDIR="${SRCDIR}/app/config"
+    sysconfdir="${SRCDIR}/app/config"
 
 else
 
@@ -3377,7 +3377,7 @@ app_daemonize="$APP_DAEMONIZE"
 
 
 
-ac_config_files="$ac_config_files Makefile rap2 app/config/puma.rb app/config/database.yml app/config/boot.rb app/config/environments/production.rb"
+ac_config_files="$ac_config_files Makefile rap2 app/config/puma.rb app/config/application.rb"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -4123,9 +4123,7 @@ do
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
     "rap2") CONFIG_FILES="$CONFIG_FILES rap2" ;;
     "app/config/puma.rb") CONFIG_FILES="$CONFIG_FILES app/config/puma.rb" ;;
-    "app/config/database.yml") CONFIG_FILES="$CONFIG_FILES app/config/database.yml" ;;
-    "app/config/boot.rb") CONFIG_FILES="$CONFIG_FILES app/config/boot.rb" ;;
-    "app/config/environments/production.rb") CONFIG_FILES="$CONFIG_FILES app/config/environments/production.rb" ;;
+    "app/config/application.rb") CONFIG_FILES="$CONFIG_FILES app/config/application.rb" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac

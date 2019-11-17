@@ -103,8 +103,8 @@ AC_ARG_WITH(confdir,
 	])
 
 AS_IF([test "x$enable_devel_mode" = "xyes"], [
-    APP_CONFDIR="${SRCDIR}"
-    sysconfdir="${SRCDIR}"
+    APP_CONFDIR="${SRCDIR}/app/config"
+    sysconfdir="${SRCDIR}/app/config"
 ], [
     test "x$APP_CONFDIR" == "x/usr/etc/${PACKAGE}" && APP_CONFDIR="/etc/${PACKAGE}"
     test "x$prefix" == "x/usr" && sysconfdir="/etc"
@@ -373,8 +373,6 @@ AC_OUTPUT([
 Makefile
 rap2
 app/config/puma.rb
-app/config/database.yml
-app/config/boot.rb
-app/config/environments/production.rb
+app/config/application.rb
 ])
 dnl EOF

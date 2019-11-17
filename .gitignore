@@ -5,6 +5,8 @@ app/node_modules/
 app/run/
 app/log/
 app/tmp/
+autom4te.cache/
 Makefile
 config.log
 config.status
+rap2

@@ -23,7 +23,7 @@ module Rapp5
     config.assets.js_compressor = :uglifier
     config.assets.gzip = true
 
-    config.paths['config/database'] = ["/home/ziggi/rapp4bw/app/config/database.yml"]
+    config.paths['config/database'] = ["@app_confdir@/database.yml"]
 
     class CustomFormatter < ActiveSupport::Logger::SimpleFormatter
         def call(severity, time, progname, msg)
@@ -32,14 +32,14 @@ module Rapp5
         end
     end
 
-    logger = ActiveSupport::Logger.new("/home/ziggi/rapp4bw/app/log/#{Rails.env}.log")
+    logger = ActiveSupport::Logger.new("@app_logdir@/#{Rails.env}.log")
     logger.formatter = CustomFormatter.new
     config.logger = ActiveSupport::TaggedLogging.new(logger)
 
     config.assets.cache_limit = 50.megabytes
     config.assets.configure do |env|
         env.cache = Sprockets::Cache::FileStore.new(
-            File.join('/home/ziggi/rapp4bw/app/tmp/cache/assets'),
+            File.join('@app_cachedir@/assets'),
             config.assets.cache_limit,
             env.logger
         )

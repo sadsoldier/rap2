@@ -15,27 +15,27 @@ Rails.application.configure do
     config.require_master_key = true
 
     config.public_file_server.enabled = true
-    config.serve_static_assets = true
 
     #config.force_ssl = true
     config.cache_store = :memory_store, { size: 16.megabytes }
     config.i18n.fallbacks = true
 
     config.active_support.deprecation = :notify
+
     config.log_level = :debug
     config.log_tags = [ :request_id ]
 
-    class CustomFormatter < ActiveSupport::Logger::SimpleFormatter
-        def call(severity, time, progname, msg)
-            timestamp = time.strftime("%Y-%m-%d %H:%M:%S.%L %Z")
-            "#{timestamp} #{severity} #{progname} #{msg}\n"
-        end
-    end
+    #class CustomFormatter < ActiveSupport::Logger::SimpleFormatter
+    #    def call(severity, time, progname, msg)
+    #        timestamp = time.strftime("%Y-%m-%d %H:%M:%S.%L %Z")
+    #        "#{timestamp} #{severity} #{progname} #{msg}\n"
+    #    end
+    #end
 
-    logger = ActiveSupport::Logger.new("/home/ziggi/rapp4bw/app/log/#{Rails.env}.log")
-    logger.formatter = CustomFormatter.new
+    #logger = ActiveSupport::Logger.new("@app_logdir@/#{Rails.env}.log")
+    #logger.formatter = CustomFormatter.new
 
-    config.logger = ActiveSupport::TaggedLogging.new(logger)
+    #config.logger = ActiveSupport::TaggedLogging.new(logger)
 
     config.active_record.dump_schema_after_migration = false
     config.active_record.verbose_query_logs = false
@@ -44,14 +44,14 @@ Rails.application.configure do
     config.assets.js_compressor = :uglifier
     config.assets.css_compressor = :sass
 
-    config.assets.cache_limit = 50.megabytes
+    #config.assets.cache_limit = 50.megabytes
 
-    config.assets.configure do |env|
-        env.cache = Sprockets::Cache::FileStore.new(
-            File.join('/home/ziggi/rapp4bw/app/tmp/cache/assets'),
-            config.assets.cache_limit,
-            env.logger
-        )
-    end
+    #config.assets.configure do |env|
+    #    env.cache = Sprockets::Cache::FileStore.new(
+    #        File.join('@app_cachedir@/assets'),
+    #        config.assets.cache_limit,
+    #        env.logger
+    #    )
+    #end
 
 end
