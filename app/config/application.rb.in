@@ -16,7 +16,18 @@ module Rapp5
   class Application < Rails::Application
     config.load_defaults 6.0
 
-    config.records_dir = "/data/asterisk"
+
+require 'yaml'
+require 'erb'
+
+    file_name = "@app_confdir@/config.yml"
+
+    if File.file?(file_name)
+        configx = YAML.load(ERB.new(File.read(file_name)).result)
+        config.records_dir = configx["records_dir"]
+    else
+        config.records_dir = "/data/asterisk"
+    end
 
     config.assets.digest = true
     config.assets.css_compressor = :sass
