@@ -6,6 +6,9 @@ gem 'rails', '~> 6.0'
 gem 'sqlite3', '~> 1.4'
 gem 'pg', '~> 1.1'
 
+gem 'rails-i18n', '~> 6.0'
+gem 'route_translator', '~> 7.0'
+
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '~> 6'
 gem 'webpacker', '~> 4.2'
@@ -19,9 +22,10 @@ gem 'uglifier', '~> 4.2'
 gem 'dalli', '~> 2.7'
 
 group :development do
-  gem 'web-console', '~> 4.0'
-  gem 'spring', '~> 2.1'
-  gem 'faker', '~> 2.7'
+    gem 'web-console', '~> 4.0'
+    gem 'spring', '~> 2.1'
+    gem 'faker', '~> 2.7'
+    gem 'i18n-tasks' , '~> 0.9.29'
 end
 
 ##gem 'bootstrap', '~> 4.3.1'

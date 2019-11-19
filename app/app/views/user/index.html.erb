@@ -7,7 +7,7 @@
             <form method="post" action="<%= user_create_path %>">
 
                 <div class="modal-header">
-                    <h5 class="modal-title">Create user</h5>
+                    <h5 class="modal-title"><%= t 'create_user' %></h5>
                     <button type="button" class="close" data-dismiss="modal">
                         <span>&times;</span>
                     </button>
@@ -15,37 +15,36 @@
 
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="name">Name:</label>
+                        <label for="name"><%= t 'name' %>:</label>
                         <input type="text" class="form-control" name="name" id="name">
                     </div>
 
                     <div class="form-group">
-                        <label for="username">Username:</label>
+                        <label for="username"><%= t 'username' %>:</label>
                         <input type="text" class="form-control" name="username" id="username">
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Password:</label>
+                        <label for="password"><%= t 'password' %>:</label>
                         <input type="password" class="form-control" name="password" id="password">
                     </div>
 
                     <div class="form-group">
-                        <label for="password_confirmation">Password confirmation:</label>
+                        <label for="password_confirmation"><%= t 'password_confirmation' %>:</label>
                         <input type="password" class="form-control" name="password_confirmation" id="password_confirmation">
                     </div>
 
-
                     <div class="form-check">
                         <input type="checkbox" name="is_admin" id="is_admin" />
-                        <label class="form-check-label" for="is_admin"> As admin</label>
+                        <label class="form-check-label" for="is_admin"> <%= t 'as_admin' %></label>
                     </div>
 
                 </div>
 
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-sm btn-primary">Create</button>
+                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><%= t 'close' %></button>
+                    <button type="submit" class="btn btn-sm btn-primary"><%= t 'create' %></button>
                 </div>
             </form>
         </div>
@@ -57,19 +56,30 @@
         <div class="col-10 col-sm-12 col-md-8 mt-sm-3">
 
             <% if flash[:alert] %>
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger" role="alert" id="alert">
 
-                    <h5>Alert</h5>
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>
+
+                    <h5><%= t 'Error' %></h5>
+
                     <ol>
                         <% flash[:alert].each do |item| %>
                             <li><%= item %></li>
                         <% end %>
-                    </ol> 
+                    </ol>
+
                 </div>
             <% end %>
 
             <% if flash[:notice] %>
-                <div class="alert alert-success" role="alert">
+
+                <div class="alert alert-success" role="alert" id="notice">
+                    <button type="button" class="close" data-dismiss="notice">
+                        <span>&times;</span>
+                    </button>
+
                     <%= flash[:notice] %>
                 </div>
             <% end %>
@@ -79,7 +89,7 @@
                     <div class="btn btn-primary btn-sm ml-auto float-right mb-3 d-inline-block" data-toggle="modal" data-target="#user-create">
                         <i class="fas fa-plus"></i>
                     </div>
-                    <h5 class="mb-3"><b>Users</b></h5>
+                    <h5 class="mb-3"><b><%= t 'users' %></b></h5>
                 </div>
             </div>
 
@@ -120,7 +130,7 @@
                                         <form method="post" action="<%= user_update_path %>">
 
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Update user <%= u.username %></h5>
+                                                <h5 class="modal-title"><%= t 'update_user' %> <%= u.username %></h5>
                                                 <button type="button" class="close" data-dismiss="modal">
                                                     <span>&times;</span>
                                                 </button>
@@ -131,35 +141,35 @@
                                                 <input type="hidden" name="id" value="<%= u.id %>" />
 
                                                 <div class="form-group">
-                                                    <label for="name">Name:</label>
+                                                    <label for="name"><%= t 'name' %>:</label>
                                                     <input type="text" class="form-control" name="name" id="name" value="<%= u.name %>">
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="username">Username:</label>
+                                                    <label for="username"><%= t 'username' %>:</label>
                                                     <input type="text" class="form-control" name="username" id="username" value="<%= u.username %>">
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="password">New password:</label>
+                                                    <label for="password"><%= t 'new_password' %>:</label>
                                                     <input type="password" class="form-control" name="password" id="password">
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="password_confirmation">New password confirmation:</label>
+                                                    <label for="password_confirmation"><%= t 'new_password_confirmation' %>:</label>
                                                     <input type="password" class="form-control" name="password_confirmation" id="password_confirmation">
                                                 </div>
 
 
                                                 <div class="form-check">
                                                     <input type="checkbox" name="is_admin" id="is_admin" />
-                                                    <label class="form-check-label" for="is_admin"> Login as admin</label>
+                                                    <label class="form-check-label" for="is_admin"> <%= t 'login_as_admin' %></label>
                                                 </div>
                                             </div>
 
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                                                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><%= t 'close' %></button>
+                                                <button type="submit" class="btn btn-sm btn-primary"><%= t 'update' %></button>
                                             </div>
                                         </form>
                                     </div>
@@ -180,7 +190,7 @@
                                         <form method="post" action="<%= user_drop_path %>">
 
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Drop user <%= u.username %></h5>
+                                                <h5 class="modal-title"><%= t 'drop_user' %> <%= u.username %></h5>
                                                 <button type="button" class="close" data-dismiss="modal">
                                                     <span>&times;</span>
                                                 </button>
@@ -192,14 +202,14 @@
 
                                                 <div class="form-check">
                                                     <%= check_box_tag :confirmation %>
-                                                    <label class="form-check-label" for="confirmation"> I agree to this action</label>
+                                                    <label class="form-check-label" for="confirmation"> <%= t 'i_agree_to_this_action' %></label>
                                                 </div>
 
                                             </div>
 
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-sm btn-primary">Drop</button>
+                                                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><%= t 'close' %></button>
+                                                <button type="submit" class="btn btn-sm btn-primary"><%= t 'drop' %></button>
                                             </div>
                                         </form>
 

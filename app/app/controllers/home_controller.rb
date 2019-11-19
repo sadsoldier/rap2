@@ -1,21 +1,12 @@
 
-    require 'ostruct'
-
-#class Hash
-#  def to_o
-#    JSON.parse to_json, object_class: OpenStruct
-#  end
-#end
-
-
 class HomeController < ApplicationController
-    #wrap_parameters format: [:json, :xml, :url_encoded_form, :multipart_form]
-    #wrap_parameters :person, include: [:name, :role]
 
-#    require 'ostruct'
 
+    #before_filter :set_locale
 
     def index
+        I18n.locale = extract_locale_from_headers
+
         if session[:user_id]
             redirect_to record_index_path
         else
@@ -23,12 +14,14 @@ class HomeController < ApplicationController
         end
     end
 
-    def hello
-        #obj = OpenStruct.new(params)
-        #obj = JSON.parse(params.to_json, object_class: OpenStruct)
-        #render json: { result: obj.role.rolename }
+    def set_locale
+        I18n.locale = extract_locale_from_headers
+    end
 
-        render json: { result: User.all }
+    private
+
+    def extract_locale_from_headers
+        request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first.presence || 'en'
     end
 
 end

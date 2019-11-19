@@ -1,0 +1,32 @@
+---
+ru:
+  as_admin: Как администратор
+  borodin_oleg: Олег Бородин
+  close: Закрыть
+  create_user: Создать пользователя
+  create: Создать
+  date_time: Дата и/или время
+  destination: Назначение
+  drop_user: Удалить пользователя
+  drop: Удалить
+  en: ENG
+  go_home: Домой
+  i_agree_to_this_action: Я согласен с этим действием
+  login_as_admin: Как администратор
+  login: Регистрация
+  made_by: Сделано
+  name: Имя
+  new_password_confirmation: Подтверждение нового пароля
+  new_password: Новый пароль
+  page_not_found: Страница не найдена
+  password_confirmation: Подтверждение пароля
+  password: Пароль
+  records: Записи
+  ru: РУС
+  source: Источник
+  submit: Отправить
+  update_records_info: Обновить информацию о записях
+  update_user: Обновить данные пользователя
+  update: Обновить
+  username: Имя пользователя
+  users: Пользователи

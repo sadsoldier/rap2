@@ -16,7 +16,21 @@ module Rapp5
   class Application < Rails::Application
     config.load_defaults 6.0
 
-    config.records_dir = "/data/asterisk"
+    config.i18n.available_locales = [:en, :ru]
+    #config.i18n.default_locale = :ru
+
+    require 'yaml'
+    require 'erb'
+
+    file_name = "/home/ziggi/rapp4bw/app/config/config.yml"
+
+
+    if File.file?(file_name)
+        configx = YAML.load(ERB.new(File.read(file_name)).result)
+        config.records_dir = configx["records_dir"]
+    else
+        config.records_dir = "/data/asterisk"
+    end
 
     config.assets.digest = true
     config.assets.css_compressor = :sass
@@ -49,3 +63,11 @@ module Rapp5
 
 end
 
+
+RouteTranslator.config do |config|
+    config.force_locale = true
+#    config.locale_param_key = :locale
+    config.generate_unlocalized_routes = true
+    config.generate_unnamed_unlocalized_routes = true
+    config.locale_param_key = :locale
+end

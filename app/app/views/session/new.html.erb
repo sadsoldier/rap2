@@ -19,13 +19,27 @@
     <div>
         <nav class="navbar navbar-expand-sm sticky-top navbar-dark bg-dark mb-4">
             <span class="navbar-text ml-3">
-                Login
+                <i class="fab fa-old-republic fa-lg"></i>
+                <%= t 'Login' %>
             </span>
 
             <ul class="nav justify-content-end ml-auto">
+
+                <% locale = I18n.locale %>
+                <% I18n.available_locales.each do |locale| %>
+                    <li class="nav-item">
+                        <% I18n.locale = locale  %>
+                        <%= link_to t(locale), login_path, class: "nav-link" %>
+
+                    </li>
+                <% end %>
+                <% I18n.locale = locale %>
+
                 <li lass="nav-item">
-                    <a class="nav-link" href="/">Go Home</a>
+                    <%= link_to t('Go Home'), root_path, class: "nav-link" %>
                 </li>
+
+
             </ul>
         </nav>
 
@@ -36,17 +50,17 @@
                     <form action="<%= auth_path %>" accept-charset="UTF-8" method="post">
 
                         <div class=" form-group">
-                            <label for="username">Username</label>
+                            <label for="username"><%= t 'username' %></label>
                             <input type="text" name="username" id="username" class="form-control" />
                         </div>
 
                         <div class="form-group">
-                            <label for="password">Password</label>
+                            <label for="password"><%= t 'password' %></label>
                             <input type="password" name="password" id="password" class="form-control" />
                         </div>
 
                         <div class="text-center">
-                            <button name="button" type="submit" class="btn btn-primary btn-sm">Submit</button>
+                            <button name="button" type="submit" class="btn btn-primary btn-sm"><%= t 'submit' %></button>
                         </div>
 
                     </form>
@@ -72,7 +86,7 @@
                 <div class="col mt-5">
                     <hr class="justify-content-sm-center" />
                     <div class="text-center">
-                        <small>Made by <a href="http://wiki.unix7.org">Borodin Oleg</a></small>
+                        <small><%= t 'made_by' %> <a href="http://wiki.unix7.org"><%= t 'borodin_oleg' %></a></small>
                     </div>
                 </div>
             </div>

@@ -23,13 +23,14 @@
         </div>
 
         <% if current_user %>
-            <a class="nav-link" href="/">Records</a>
+            <%= link_to t('records'), record_index_path, class: "nav-link" %>
             <% if current_user.is_admin %>
-                <a class="nav-link" href="/user">Users</a>
+                <%= link_to t('users'), user_index_path, class: "nav-link" %>
             <% end %>
         <% end %>
 
         <ul class="nav justify-content-end ml-auto mr-3">
+
             <li class="nav-item">
                 <% if current_user %>
                     <%= link_to current_user.username, logout_path %>
@@ -49,7 +50,7 @@
             <div class="col mt-5">
                 <hr class="justify-content-sm-center" />
                 <div class="text-center">
-                    <small>Made by <a href="http://wiki.unix7.org">Borodin Oleg</a></small>
+                    <small><%= t 'made_by' %> <a href="http://wiki.unix7.org"><%= t 'borodin_oleg' %></a></small>
                 </div>
             </div>
         </div>

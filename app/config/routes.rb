@@ -30,35 +30,38 @@ end
 
 Rails.application.routes.draw do
 
-    get 'login', to: 'session#new', as: 'login'
-    get 'logout', to: 'session#destroy', as: 'logout'
-    post 'auth', to: 'session#create', as: 'auth'
+    localized do
+        get 'login', to: 'session#new', as: 'login'
 
-    constraints UserConstraint.new do
-        get 'record', to: 'record#index', as: 'record_index'
-        get 'record/download', to: 'record#download', as: 'record_download'
-        get 'record/update', to: 'record#update', as: 'record_update'
+        get 'logout', to: 'session#destroy', as: 'logout'
+        post 'auth', to: 'session#create', as: 'auth'
+
+        constraints UserConstraint.new do
+            get 'records', to: 'record#index', as: 'record_index'
+            get 'record/download', to: 'record#download', as: 'record_download'
+            get 'record/update', to: 'record#update', as: 'record_update'
+        end
+
+        constraints AdminConstraint.new do
+            get 'users', to: 'user#index', as: 'user_index'
+            post 'user/create', to: 'user#create', as: 'user_create'
+            post 'user/drop', to: 'user#drop', as: 'user_drop'
+            post 'user/update', to: 'user#update', as: 'user_update'
+        end
+
+        root to: 'home#index'
+
+        #get 'hello', to: 'home#hello'
+        #post 'hello', to: 'home#hello'
+
+
+        match "/404", to: "error#not_found", via: :all
+        match "/402", to: "error#not_found", via: :all
+        match "/422", to: "error#unacceptable", via: :all
+        match "/500", to: "error#internal_error", via: :all
+        match "/503", to: "error#internal_error", via: :all
+
+        match '/:url', to: "error#not_found", via: :all, constraints: { url: /.*/ }
     end
-
-    constraints AdminConstraint.new do
-        get 'user', to: 'user#index', as: 'user_index'
-        post 'user/create', to: 'user#create', as: 'user_create'
-        post 'user/drop', to: 'user#drop', as: 'user_drop'
-        post 'user/update', to: 'user#update', as: 'user_update'
-    end
-
-    root to: 'home#index'
-
-    get 'hello', to: 'home#hello'
-    post 'hello', to: 'home#hello'
-
-
-    match "/404", to: "error#not_found", via: :all
-    match "/402", to: "error#not_found", via: :all
-    match "/422", to: "error#unacceptable", via: :all
-    match "/500", to: "error#internal_error", via: :all
-    match "/503", to: "error#internal_error", via: :all
-
-    match '/:url', to: "error#not_found", via: :all, constraints: { url: /.*/ }
 
 end

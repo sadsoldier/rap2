@@ -1,4 +1,5 @@
 
+
 <div class="container">
 
     <div class="row justify-content-center">
@@ -6,10 +7,13 @@
 
             <div class="row">
                 <div class="col">
-                    <a class="btn btn-primary btn-sm ml-auto float-right mb-3 d-inline-block" href="<%= record_update_path  %>">
-                        <i class="fas fa-sync"></i>
+                    <a class="btn btn-primary btn-sm ml-auto float-right mb-3 d-inline-block" href="<%= record_update_path %>" >
+                        <span data-toggle="tooltip" data-placement="left" title="<%= I18n.t 'update_records_info' %>">
+                            <i class="fas fa-sync" ></i>
+                        </span>
+
                     </a>
-                    <h5 class="mb-3"><b>Records</b></h5>
+                    <h5 class="mb-3"><b><%= t 'records' %></b></h5>
                 </div>
             </div>
 
@@ -18,13 +22,13 @@
                 <div class="form-row w-75 mb-2">
 
                     <div class="col">
-                        <input type="text" class="form-control form-control-sm" placeholder="Date" name="timestamp" value="<%= @search_timestamp %>">
+                        <input type="text" class="form-control form-control-sm" placeholder="<%= I18n.t 'date_time' %>" name="timestamp" value="<%= @search_timestamp %>">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control form-control-sm" placeholder="Source" name="source"  value="<%= @search_source %>">
+                        <input type="text" class="form-control form-control-sm" placeholder="<%= I18n.t 'source' %>" name="source"  value="<%= @search_source %>">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control form-control-sm" placeholder="Destination" name="destination"  value="<%= @search_destination %>">
+                        <input type="text" class="form-control form-control-sm" placeholder="<%= I18n.t 'destination' %>" name="destination"  value="<%= @search_destination %>">
                     </div>
                     <div class="col">
                         <button type="submit" class="btn btn-sm btn-primary"><i class="fas fa-search"></i></button>

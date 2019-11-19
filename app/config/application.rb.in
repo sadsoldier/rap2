@@ -16,11 +16,13 @@ module Rapp5
   class Application < Rails::Application
     config.load_defaults 6.0
 
+    require 'yaml'
+    require 'erb'
 
-require 'yaml'
-require 'erb'
+    config.i18n.default_locale = :ru
 
     file_name = "@app_confdir@/config.yml"
+
 
     if File.file?(file_name)
         configx = YAML.load(ERB.new(File.read(file_name)).result)
@@ -58,5 +60,12 @@ require 'erb'
 
   end
 
+end
+
+RouteTranslator.config do |config|
+    config.force_locale = true
+    config.generate_unlocalized_routes = true
+    config.generate_unnamed_unlocalized_routes = true
+#    config.locale_param_key = :locale
 end
 
